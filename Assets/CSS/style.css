@@ -1,23 +1,24 @@
 
+/* style for heading */
 .title {
     height: 100 px;
     color: white;
     background-color: black;
     padding: 20 px;
 }
-
+/* style for zip code search box */
 .zipCode{
     background-color: antiquewhite;
     font-size: 20 px;
 }
-
+/* style for 5 day divs */
 div#fiveDay div{
     width: 130 px;
     color: #fff;
     padding: 5px;
     border-radius: 5 px;
 }
-
+/* cursor style */
 .city{
     cursor: pointer;
 }
