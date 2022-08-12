@@ -1,0 +1,23 @@
+
+.title {
+    height: 100 px;
+    color: white;
+    background-color: black;
+    padding: 20 px;
+}
+
+.zipCode{
+    background-color: antiquewhite;
+    font-size: 20 px;
+}
+
+div#fiveDay div{
+    width: 130 px;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5 px;
+}
+
+.city{
+    cursor: pointer;
+}
