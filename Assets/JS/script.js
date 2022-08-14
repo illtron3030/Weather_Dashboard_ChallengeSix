@@ -98,4 +98,32 @@ function showWeatherData(weatherData, city)
 
 
     var uvIndex = weatherData.current.uvi;
+
+    var bgColor = "";
+    var textColor = "";
+    
+    if (uvIndex < 3)
+    {
+        bgColor = "bg-good";
+        textColor = "text-light";
+    }
+    else if (uvIndex > 2 && uvIndex < 6)
+    {
+        bgColor = "bg-warning";
+        textColor = "text-dark";
+    }
+    else
+    {
+        bgColor = "bg-danger";
+        textColor = "text-light";
+    }
+
+    $("#currentUVIndex").html(uvIndex).addClass(bgColor + " p-1 " +  textColor);
+
+
+
+    var ul5 = $("#fiveDay");
+    ul5.empty();
+
+    for (i=1; i < 6; i++)
 }
