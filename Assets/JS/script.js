@@ -1,5 +1,5 @@
 let APIKey = "6d28ee9d4a6dba4952c75a12c9046c96";
-let loactions = [];
+let locations = [];
 
 function getWeatherData(lat, lon, city) {
   var queryURL =
@@ -10,15 +10,15 @@ function getWeatherData(lat, lon, city) {
     "&exclude=,minutely,hourly,alerts&appid=" +
     APIKey;
 
-  $.ajax({
+  $.ajax({ //AJAX to OpenWeatherMap API
     url: queryURL,
     method: "GET",
   })
-  .then(function (response) {
+  .then(function (response) { //Store received info into object "response"
     showWeatherData(response, city);
   });
 }
-
+//call API based on zipcode and call function showWeatherData to display values
 function loadWeatherZip(zipCode, isClicked) {
   var queryURL =
     "https://api.openweathermap.org/data/2.5/forecast?zip=" +
@@ -27,13 +27,12 @@ function loadWeatherZip(zipCode, isClicked) {
     APIKey;
   var weatherContainer = $("#weatherContainer");
 
-  $.ajax({
+  $.ajax({ //AJAX to call API
     url: queryURL,
     method: "GET",
   })
-
+    //Store all data received in object called "response"
     .then(function (response) {
-      //console.log(response);
 
       if (!isClicked) {
         saveLocations(response);
@@ -41,13 +40,13 @@ function loadWeatherZip(zipCode, isClicked) {
         renderLocations();
       }
 
-      getWeatherData(
+      getWeatherData( //Load weather
         response.city.coord.lat,
         response.city.coord.lon,
         response.city.name
       );
     })
-    .catch(function (response) {
+    .catch(function (response) {  //Tell user their input is not valid
       alert("Not a vaild Zip Code");
     });
 }
@@ -83,7 +82,7 @@ function loadWeatherCity(city, isClicked) {
 }
 
 function showWeatherData(weatherData, city) {
-  var iconURL =
+  var iconURL =  //Load current city
     "http://openweathermap.org/img/w/" +
     weatherData.current.weather[0].icon +
     ".png";
@@ -108,7 +107,7 @@ function showWeatherData(weatherData, city) {
   var textColor = "";
 
   if (uvIndex < 3) {
-    bgColor = "bg-good";
+    bgColor = "bg-success";
     textColor = "text-light";
   } else if (uvIndex > 2 && uvIndex < 6) {
     bgColor = "bg-warning";
@@ -122,10 +121,10 @@ function showWeatherData(weatherData, city) {
     .html(uvIndex)
     .addClass(bgColor + " p-1 " + textColor);
 
-  var ul5 = $("#fiveDay");
+  var ul5 = $("#fiveDay");  //Load five day
   ul5.empty();
 
-  for (i = 1; i < 6; i++) {
+  for (i = 1; i < 6; i++) {  //Specify that we want only next five days
     var div = $("<div>").addClass("bg-primary");
 
     var dateTime = parseInt(weatherData.daily[i].dt);
@@ -155,20 +154,19 @@ function showWeatherData(weatherData, city) {
 
   $("#weatherData").show();
 }
-
+//Load loactions from local storage to locations array
 function loadLocations() {
   var locationsArray = localStorage.getItem("locations");
   if (locationsArray) {
-    locations = JSON.parse(locationsArray);
+    locations = JSON.parse(locationsArray);//check if location object is in local storage
     renderLocations();
   } else {
-    localStorage.setItem("locations", JSON.stringify(locations));
+    localStorage.setItem("locations", JSON.stringify(locations));//if there is not one make one and save to local storage
   }
 }
 
-function renderLocations() {
+function renderLocations() { //clear cities list before rendering from local storage
   var divLocations = $("#locationHistory");
-  //divLocations.empty();
 
   $.each(locations, function (index, item) {
     var a = $("<a>")
@@ -189,27 +187,27 @@ function renderLocations() {
   locations = [];
 }
 
-function saveLocations(data) {
-  var city = data.city.name;
+function saveLocations(data) { //Save locations to local storage array
+  var city = data.city.name; //Get city name
 
   locations.unshift(city);
   localStorage.setItem("locations", JSON.stringify(locations));
 }
 
 $(document).ready(function () {
-  $("#weatherData").hide();
+  $("#weatherData").hide();//Hide div that shows weather data and display when populated
 
-  loadLocations();
+  loadLocations();//Get locations from local storage and load them into array
 
-  $("#searchBtn").click(function (event) {
-    var element = event.target;
+  $("#searchBtn").click(function (event) {//Handler for city search input
+    var element = event.target;//Set element to div that was clicked
     var searchCriteria = $("#zipCode").val();
 
-    if (searchCriteria !== "") {
+    if (searchCriteria !== "") { //check if it is empty search
       var zip = parseInt(searchCriteria);
 
       if (!isNaN(zip)) {
-        loadWeatherZip(zip, false);
+        loadWeatherZip(zip, false);//Tell user their input is not valid
       } else {
         loadWeatherCity(searchCriteria, false);
       }

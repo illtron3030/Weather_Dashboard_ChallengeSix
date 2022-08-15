@@ -3,7 +3,7 @@
 .title {
     height: 100 px;
     color: white;
-    background-color: navy;
+    background-color: gray;
     padding: 20 px;
 }
 /* style for zip code search box */
@@ -13,8 +13,8 @@
 }
 /* style for 5 day divs */
 div#fiveDay div{
-    width: 130 px;
-    color: whitesmoke;
+    width: 120 px;
+    color: white;
     padding: 5px;
     border-radius: 5 px;
 }
