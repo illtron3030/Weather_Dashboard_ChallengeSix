@@ -3,7 +3,7 @@
 .title {
     height: 100 px;
     color: white;
-    background-color: black;
+    background-color: navy;
     padding: 20 px;
 }
 /* style for zip code search box */
@@ -14,7 +14,7 @@
 /* style for 5 day divs */
 div#fiveDay div{
     width: 130 px;
-    color: #fff;
+    color: whitesmoke;
     padding: 5px;
     border-radius: 5 px;
 }
