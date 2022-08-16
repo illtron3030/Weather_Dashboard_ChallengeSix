@@ -22,7 +22,7 @@ Why I Made This Project:
 
 To further my knowledge of Javascript and the use of API's.  API's
 can be used for many applications and this challenge showed me how
-so much is possible intergrating them into websites.
+so much is possible integrating them into websites.
 
 My Biggest Challenge:
 
