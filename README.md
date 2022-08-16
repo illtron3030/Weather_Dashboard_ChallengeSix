@@ -4,8 +4,7 @@
 
 Description:
 
-A simple weather URL that gives you current temprature, humidity, 
-wind speed, and UV index with a color coded warning.
+A website using a weather API that gives you current temperature, humidity, wind speed, and UV index with a color coded warning.  Also includes a five day forecast.
 
 User Story:
 
@@ -29,7 +28,7 @@ My Biggest Challenge:
 
 Getting the Javascript to work.  I had a lot of hurdles to jump and 
 thanks to some help from tutor, my brother and reading a lot of documentation I was able to get it all to work.  I was having a 
-lot of issues getting the UV index to color code based on how high or low UV index was.
+lot of issues getting the UV index to color code based on how high or low UV index was.  
 
 Mock Up:
 
