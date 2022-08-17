@@ -8,14 +8,14 @@
 }
 /* style for zip code search box */
 .zipCode{
-    background-color: antiquewhite;
+    background-color: white;
     font-size: 20 px;
 }
 /* style for 5 day divs */
 div#fiveDay div{
     width: 120 px;
     color: white;
-    padding: 5px;
+    padding: 15px;
     border-radius: 5 px;
 }
 /* cursor style */
