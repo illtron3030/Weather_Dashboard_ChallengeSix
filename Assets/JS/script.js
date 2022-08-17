@@ -170,7 +170,7 @@ function renderLocations() { //clear cities list before rendering from local sto
 
   $.each(locations, function (index, item) {
     var a = $("<a>")
-      .addClass("list-group-item list0group-item-action-city")
+      .addClass("list-group-item list-group-item-action-city")
       .attr("data-city", locations[index])
       .text(locations[index]);
     divLocations.append(a);
